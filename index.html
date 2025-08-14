@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot for SMBs - Automate Customer Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f7f7f7;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50; /* Darker blue-grey for headings */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db; /* Primary button color (blue) */
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+            .btn:hover {
+                background-color: #2980b9; /* Darker blue on hover */
+            }
+
+        /* Header Section */
+        header {
+            background-color: #fff;
+            padding: 40px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+            .hero-content h1 {
+                font-size: 2.8em;
+                color: #2c3e50;
+                margin-bottom: 10px;
+                line-height: 1.2;
+            }
+
+            .hero-content p {
+                font-size: 1.2em;
+                color: #666;
+                max-width: 700px;
+                margin: 0 auto 30px auto;
+            }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Features/Benefits Section */
+        .features {
+            background-color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+            .features h2 {
+                font-size: 2.2em;
+            }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .feature-item {
+            background-color: #fcfcfc;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+            .feature-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            .feature-item h3 {
+                font-size: 1.5em;
+                color: #3498db; /* Blue for feature titles */
+                margin-bottom: 10px;
+                text-align: left;
+            }
+
+            .feature-item p {
+                font-size: 1em;
+                color: #555;
+                text-align: left;
+            }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: #f0f4f7; /* Light blue-grey background */
+            padding: 60px 0;
+            text-align: center;
+        }
+
+            .pricing h2 {
+                font-size: 2.2em;
+            }
+
+        .pricing-plans {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .plan-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+            text-align: center;
+        }
+
+            .plan-card h3 {
+                font-size: 1.8em;
+                color: #2c3e50;
+                margin-bottom: 15px;
+            }
+
+            .plan-card .price {
+                font-size: 2.5em;
+                font-weight: 700;
+                color: #3498db;
+                margin-bottom: 20px;
+            }
+
+            .plan-card ul {
+                list-style: none;
+                padding: 0;
+                margin-bottom: 30px;
+            }
+
+                .plan-card ul li {
+                    margin-bottom: 10px;
+                    font-size: 1.1em;
+                    color: #555;
+                }
+
+            .plan-card .btn {
+                background-color: #2ecc71; /* Green for pricing button */
+            }
+
+                .plan-card .btn:hover {
+                    background-color: #27ae60; /* Darker green on hover */
+                }
+
+        /* Call to Action Section */
+        .cta {
+            background-color: #3498db; /* Blue background for CTA */
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+            .cta h2 {
+                color: #fff;
+                font-size: 2.5em;
+                margin-bottom: 20px;
+            }
+
+            .cta p {
+                font-size: 1.3em;
+                max-width: 800px;
+                margin: 0 auto 30px auto;
+            }
+
+            .cta .btn {
+                background-color: #2ecc71; /* Green button for CTA */
+                padding: 15px 35px;
+                font-size: 1.2em;
+            }
+
+                .cta .btn:hover {
+                    background-color: #27ae60;
+                }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50; /* Dark blue-grey footer */
+            color: #ecf0f1;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+            footer p {
+                margin: 0;
+                color: #ecf0f1;
+            }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2em;
+            }
+
+            .hero-content p, .cta p {
+                font-size: 1em;
+            }
+
+            .feature-list, .pricing-plans {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-card {
+                min-width: unset;
+                max-width: unset;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container hero-content">
+            <!-- IMPORTANT: Replace "YOUR_X_BANNER_IMAGE_URL_HERE" with the actual URL of your X banner image -->
+            <img src="https://i.imgur.com/Mfdbp7H.png" alt="AI Chatbot Demo" class="hero-image">
+            <h1>Automate Your Customer Support.<br>Grow Your Business, Not Your Inbox.</h1>
+            <p>Empower your small business with an AI chatbot that handles common customer questions instantly, freeing up your valuable time and saving costs.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="features">
+            <div class="container">
+                <h2>Why You Need Our AI Chatbot</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h3>Instant Answers, 24/7</h3>
+                        <p>Your customers get immediate support, day or night, ensuring satisfaction and reducing wait times.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Save Hours Every Week</h3>
+                        <p>Automate repetitive FAQs so you and your team can focus on what truly matters: growing your business.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Cost-Effective Scalability</h3>
+                        <p>Get enterprise-level support automation without the enterprise-level price tag. Scale your customer service without hiring more staff.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Easy Setup, Zero Code</h3>
+                        <p>Integrate seamlessly with your website in minutes, no complex coding required.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <div class="container">
+                <h2>Flexible Plans to Fit Your Business</h2>
+                <p>Experience the power of AI customer support with our freemium model.</p>
+                <div class="pricing-plans">
+                    <div class="plan-card">
+                        <h3>Free Tier</h3>
+                        <div class="price">Free</div>
+                        <ul>
+                            <li>Up to <strong>50 customer queries</strong> per month</li>
+                            <li>Basic FAQ handling</li>
+                            <li>Perfect for trying us out</li>
+                        </ul>
+                    </div>
+                    <div class="plan-card">
+                        <h3>Paid Tiers</h3>
+                        <div class="price">From $10<span>/month</span></div>
+                        <ul>
+                            <li><strong>Unlimited</strong> queries</li>
+                            <li>Advanced analytics</li>
+                            <li>Priority support</li>
+                            <li>Designed to scale with your growing needs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Transform Your Customer Support?</h2>
+                <p>Be among the first SMBs to revolutionize your customer service. Limited spots available for beta testers!</p>
+                <!-- This button links directly to your Google Form -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc3TCBR62HivPTw96lkZjE5_7lnhn0XEPMb5YgGGOBmFnU4mQ/viewform?usp=dialog" target="_blank" class="btn">Join Our Beta / Get Early Access</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AIForSMBHQ. All rights reserved.</p>
+            <!-- You can add social media links or other legal info here later -->
+        </div>
+    </footer>
+
+</body>
+</html>
